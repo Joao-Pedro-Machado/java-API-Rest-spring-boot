@@ -8,6 +8,7 @@ import java.util.List;
 @Entity
 public class Topico {
 
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
@@ -26,6 +27,15 @@ public class Topico {
 
 	@OneToMany(mappedBy = "topico")
 	private List<Resposta> respostas = new ArrayList<>();
+
+	public Topico() {
+	}
+
+	public Topico(String titulo, String mensagem, Curso curso) {
+		this.titulo = titulo;
+		this.mensagem = mensagem;
+		this.curso = curso;
+	}
 
 	@Override
 	public int hashCode() {
